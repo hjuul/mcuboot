@@ -700,6 +700,7 @@ swap_run(struct boot_loader_state *state, struct boot_status *bs,
            primary_slot_size += boot_img_sector_size(state,
                                                      BOOT_PRIMARY_SLOT,
                                                      last_sector_idx);
+           last_sector_idx++;
         }
         if ((secondary_slot_size < copy_size) ||
             (secondary_slot_size < primary_slot_size)) {
@@ -712,7 +713,6 @@ swap_run(struct boot_loader_state *state, struct boot_status *bs,
                 primary_slot_size == secondary_slot_size) {
             break;
         }
-        last_sector_idx++;
         last_idx_secondary_slot++;
     }
 
